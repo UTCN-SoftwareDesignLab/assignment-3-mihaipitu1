@@ -1,0 +1,17 @@
+﻿@model List<string>
+@{
+    ViewData["Title"] = "Error";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Error Logging In</h2>
+
+<div class="col-md-4">
+    <p>You have the following errors:</p>
+    @foreach (var item in (ViewData["Errors"] as List<string>))
+    {
+        <p>@Html.DisplayFor(modelItem => item)</p>
+    }
+</div>
+
+<a asp-action="Login">Back to login page</a>
