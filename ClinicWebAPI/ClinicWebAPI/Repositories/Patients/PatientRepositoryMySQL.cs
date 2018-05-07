@@ -27,7 +27,7 @@ namespace ClinicWebAPI.Repositories.Patients
                 connection.Open();
                 using (MySqlCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = String.Format("Insert into patient (id, name, idCardNo, address, birthDate) VALUES('{0}', '{1}', '{2}', '{3}', '{4}'); ", t.GetId(), t.GetName(), t.GetIdCardNo(), t.GetAddress(), t.GetBirthDate());
+                    command.CommandText = String.Format("Insert into patient (id, name, idCardNo, address, birthDate) VALUES('{0}', '{1}', '{2}', '{3}', '{4}'); ", t.GetId(), t.GetName(), t.GetIdCardNo(), t.GetAddress(), t.GetBirthDate().ToString("yyyy-MM-dd HH:mm:ss"));
                     command.ExecuteNonQuery();
                 }
                 connection.Close();
@@ -103,7 +103,7 @@ namespace ClinicWebAPI.Repositories.Patients
                     connection.Open();
                     using (MySqlCommand command = connection.CreateCommand())
                     {
-                        command.CommandText = String.Format("UPDATE patient SET name = '{0}' ,idCardNo = '{1}' ,address = '{2}' ,birthDate = '{3}' WHERE id = '{4}';", t.GetName(), t.GetIdCardNo(), t.GetAddress(), t.GetBirthDate() , t.GetId());
+                        command.CommandText = String.Format("UPDATE patient SET name = '{0}' ,idCardNo = '{1}' ,address = '{2}' ,birthDate = '{3}' WHERE id = '{4}';", t.GetName(), t.GetIdCardNo(), t.GetAddress(), t.GetBirthDate().ToString("yyyy-MM-dd HH:mm:ss"), t.GetId());
                         command.ExecuteNonQuery();
                     }
                     connection.Close();

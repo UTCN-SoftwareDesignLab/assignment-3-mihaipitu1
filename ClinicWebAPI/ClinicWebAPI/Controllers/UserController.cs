@@ -56,6 +56,9 @@ namespace ClinicWebAPI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(User user)
         {
+            var oldUser = adminService.GetUserById(user.GetId());
+            user.SetPassword(oldUser.GetPassword());
+            user.SetType(oldUser.GetType());
             adminService.UpdateUser(user);
             return RedirectToAction("Index", "User");
         }

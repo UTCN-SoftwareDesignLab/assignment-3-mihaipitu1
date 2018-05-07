@@ -36,7 +36,7 @@ namespace ClinicWebAPI.Controllers
             {
                 case "admin": return RedirectToAction("Index", "User");
                 case "doctor": return RedirectToAction("Index", "Doctor");
-                case "secretary": return RedirectToAction("Index", "Clinic");
+                case "secretary": return RedirectToAction("Patients", "Clinic");
                 default:
                     return StatusCode(404);
             }

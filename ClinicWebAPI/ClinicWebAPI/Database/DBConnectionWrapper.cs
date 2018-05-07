@@ -28,6 +28,7 @@ namespace ClinicWebAPI.Database
             conn_string.Database = database;
             conn_string.UserID = uid;
             conn_string.Password = password;
+            conn_string.SslMode = MySqlSslMode.None;
 
             connection = new MySqlConnection(conn_string.ToString());
         }

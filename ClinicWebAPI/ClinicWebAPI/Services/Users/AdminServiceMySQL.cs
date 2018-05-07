@@ -45,6 +45,7 @@ namespace ClinicWebAPI.Services.Users
             }
             else
             {
+                user.SetId(GetMaxId()+1);
                 user.SetPassword(EncodePassword(user.GetPassword()));
                 notifier.SetResult(userRepo.Create(user));
             }
@@ -91,7 +92,11 @@ namespace ClinicWebAPI.Services.Users
 
         public bool UpdateUser(User user)
         {
-            user.SetPassword(EncodePassword(user.GetPassword()));
+            string oldPass = userRepo.FindById(user.GetId()).GetPassword();
+            if(!oldPass.Equals(EncodePassword(user.GetPassword())))
+            {
+                user.SetPassword(EncodePassword(user.GetPassword()));
+            }
             return userRepo.Update(user);
         }
     }
