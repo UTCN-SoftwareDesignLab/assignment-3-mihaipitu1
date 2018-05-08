@@ -39,6 +39,14 @@ namespace ClinicWebAPI.Services.Users
             else
             {
                 user = userRepo.FindByUsernameAndPassword(username, EncodePassword(password));
+                if (user.GetUsername() == null || !user.GetUsername().Equals(username))
+                {
+                    notifier.AddError("Incorrect username!");
+                }
+                if(user.GetPassword() == null || !user.GetPassword().Equals(EncodePassword(password)))
+                {
+                    notifier.AddError("Incorrect password!");
+                }
                 notifier.SetResult(user);
             }
 

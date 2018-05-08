@@ -46,28 +46,22 @@ namespace ClinicWebAPI.Controllers
         public ActionResult CreatePatient(Patient patient)
         {
             patientService.CreatePatient(patient);
-            return RedirectToAction("Index");
+            return RedirectToAction("Patients");
         }
 
         public ActionResult CreateConsultation()
         {
-            var patients = patientService.GetPatients();
-            List<SelectListItem> pats = new List<SelectListItem>();
-            foreach(var patient in patients)
-            {
-                pats.Add(new SelectListItem { Text = patient.GetName(), Value = patient.GetId().ToString() });
-            }
-            ViewBag.Patient = pats;
             return View();
         }
 
-        // POST: Patient/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CreateConsultation(Consultation consultation)
         {
+            consultation.SetDoctorId(consultation.GetDoctor().GetId());
+            consultation.SetPatientId(consultation.GetPatient().GetId());
             consultationService.CreateConsultation(consultation);
-            return RedirectToAction("Index");
+            return RedirectToAction("Consultations");
         }
 
         // GET: Patient/Edit/5
@@ -83,7 +77,23 @@ namespace ClinicWebAPI.Controllers
         public ActionResult EditPatient(Patient patient)
         {
             patientService.UpdatePatient(patient);
-            return RedirectToAction("Index");
+            return RedirectToAction("Patients");
+        }
+
+        // GET: Patient/Edit/5
+        public ActionResult EditConsultation(int id)
+        {
+            var consultation = consultationService.GetConsultationById(id);
+            return View(consultation);
+        }
+
+        // POST: Patient/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditConsultation(Consultation consultation)
+        {
+            consultationService.UpdateConsultation(consultation);
+            return RedirectToAction("Consultations");
         }
 
         // GET: Patient/Delete/5
@@ -93,13 +103,27 @@ namespace ClinicWebAPI.Controllers
             return View();
         }
 
-        // POST: Patient/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DeletePatient(Patient patient)
         {
             patientService.DeletePatient(patient);
-            return RedirectToAction("Index");
+            return RedirectToAction("Patients");
+        }
+
+        public ActionResult DeleteConsultation(int id)
+        {
+            var consultation = consultationService.GetConsultationById(id);
+            return View(consultation);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConsultation(Consultation consultation)
+        {
+            consultationService.DeleteConsultation(consultation);
+            return RedirectToAction("Consultations");
         }
     }
 }

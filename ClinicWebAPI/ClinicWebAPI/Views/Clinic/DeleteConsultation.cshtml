@@ -1,0 +1,33 @@
+﻿@model ClinicWebAPI.Models.Consultation
+
+@{
+    ViewData["Title"] = "DeleteConsultation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DeleteConsultation</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Consultation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AppointmentDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AppointmentDate)
+        </dd>
+    </dl>
+    
+    <form asp-action="DeleteConsultation">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Consultations">Back to List</a>
+    </form>
+</div>

@@ -27,7 +27,7 @@ namespace ClinicWebAPI.Repositories.Consultations
                 connection.Open();
                 using (MySqlCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = String.Format("Insert into consultation (id, appointmentDate, user_id, patient_id) VALUES('{0}', '{1}', '{2}', '{3}'); ", t.GetId(), t.GetAppointmentDate(), t.GetPatientId(), t.GetDoctorId());
+                    command.CommandText = String.Format("Insert into consultation (id, appointmentDate, user_id, patient_id) VALUES('{0}', '{1}', '{2}', '{3}'); ", t.GetId(), t.GetAppointmentDate().ToString("yyyy-MM-dd HH:mm:ss"), t.GetDoctor().Id, t.GetPatient().Id);
                     command.ExecuteNonQuery();
                 }
                 connection.Close();
@@ -141,7 +141,7 @@ namespace ClinicWebAPI.Repositories.Consultations
                 connection.Open();
                 using (MySqlCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = String.Format("Update consultation SET appointmentDate = '{0}', user_id ='{1}', patient_id='{2}' where id='{3}'); ", t.GetAppointmentDate(), t.GetPatientId(), t.GetDoctorId(), t.GetId());
+                    command.CommandText = String.Format("Update consultation SET appointmentDate = '{0}', user_id ='{1}', patient_id='{2}' where id='{3}'; ", t.GetAppointmentDate().ToString("yyyy-MM-dd HH:mm:ss"), t.GetPatientId(), t.GetDoctorId(), t.GetId());
                     command.ExecuteNonQuery();
                 }
                 connection.Close();

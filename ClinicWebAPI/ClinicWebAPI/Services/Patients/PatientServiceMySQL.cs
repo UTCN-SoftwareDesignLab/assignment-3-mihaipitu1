@@ -18,6 +18,7 @@ namespace ClinicWebAPI.Services.Patients
 
         public bool CreatePatient(Patient patient)
         {
+            patient.SetId(GetMaxId() + 1);
             return patientRepo.Create(patient);
         }
 
@@ -39,6 +40,18 @@ namespace ClinicWebAPI.Services.Patients
         public bool UpdatePatient(Patient patient)
         {
             return patientRepo.Update(patient);
+        }
+
+        private long GetMaxId()
+        {
+            List<Patient> patients = patientRepo.FindAll();
+            long id = 0;
+            foreach(var patient in patients)
+            {
+                if (id < patient.Id)
+                    id = patient.Id;
+            }
+            return id;
         }
     }
 }

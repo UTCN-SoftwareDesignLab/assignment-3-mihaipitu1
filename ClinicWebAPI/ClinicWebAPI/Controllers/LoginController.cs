@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using ClinicWebAPI.Services.Users;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace ClinicWebAPI.Controllers
 {
@@ -35,7 +36,11 @@ namespace ClinicWebAPI.Controllers
             switch(user.GetType())
             {
                 case "admin": return RedirectToAction("Index", "User");
-                case "doctor": return RedirectToAction("Index", "Doctor");
+                case "doctor":
+                    {
+                        TempData["user"] = JsonConvert.SerializeObject(user);
+                        return RedirectToAction("Consultations", "Doctor");
+                    }
                 case "secretary": return RedirectToAction("Patients", "Clinic");
                 default:
                     return StatusCode(404);

@@ -24,6 +24,7 @@ namespace ClinicWebAPI.Services.Consultations
 
         public bool CreateConsultation(Consultation consultation)
         {
+            consultation.SetId(GetMaxId() + 1);
             return consultationRepo.Create(consultation);
         }
 
@@ -76,6 +77,18 @@ namespace ClinicWebAPI.Services.Consultations
         public bool UpdateConsultation(Consultation consultation)
         {
             return consultationRepo.Update(consultation);
+        }
+
+        private long GetMaxId()
+        {
+            List<Consultation> consultations = consultationRepo.FindAll();
+            long id = 0;
+            foreach(var consultation in consultations)
+            {
+                if (id < consultation.Id)
+                    id = consultation.Id;
+            }
+            return id;
         }
     }
 }

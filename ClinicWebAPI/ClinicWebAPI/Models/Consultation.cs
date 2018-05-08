@@ -81,5 +81,10 @@ namespace ClinicWebAPI.Models
         {
             this.doctor = doctor;
         }
+        public User Doctor
+        {
+            get { return GetDoctor(); }
+            set { SetDoctor(value); }
+        }
     }
 }

@@ -2,10 +2,10 @@ C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI\
 C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI\bin\Debug\netcoreapp2.0\ClinicWebAPI.runtimeconfig.json
 C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI\bin\Debug\netcoreapp2.0\ClinicWebAPI.runtimeconfig.dev.json
 C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI\bin\Debug\netcoreapp2.0\ClinicWebAPI.dll
-C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI\obj\Debug\netcoreapp2.0\ClinicWebAPI.csprojResolveAssemblyReference.cache
 C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI\obj\Debug\netcoreapp2.0\ClinicWebAPI.csproj.CoreCompileInputs.cache
 C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI\obj\Debug\netcoreapp2.0\ClinicWebAPI.AssemblyInfoInputs.cache
 C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI\obj\Debug\netcoreapp2.0\ClinicWebAPI.AssemblyInfo.cs
 C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI\bin\Debug\netcoreapp2.0\ClinicWebAPI.pdb
 C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI\obj\Debug\netcoreapp2.0\ClinicWebAPI.dll
 C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI\obj\Debug\netcoreapp2.0\ClinicWebAPI.pdb
+C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI\obj\Debug\netcoreapp2.0\ClinicWebAPI.csprojAssemblyReference.cache
