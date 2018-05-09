@@ -25,6 +25,8 @@ namespace ClinicWebAPI.Services.Consultations
         public bool CreateConsultation(Consultation consultation)
         {
             consultation.SetId(GetMaxId() + 1);
+            consultation.SetDoctorId(consultation.GetDoctor().Id);
+            consultation.SetPatientId(consultation.GetPatient().Id);
             return consultationRepo.Create(consultation);
         }
 

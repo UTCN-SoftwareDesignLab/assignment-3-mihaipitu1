@@ -58,8 +58,8 @@ namespace ClinicWebAPI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CreateConsultation(Consultation consultation)
         {
-            consultation.SetDoctorId(consultation.GetDoctor().GetId());
-            consultation.SetPatientId(consultation.GetPatient().GetId());
+            //consultation.SetDoctorId(consultation.GetDoctor().GetId());
+            //consultation.SetPatientId(consultation.GetPatient().GetId());
             consultationService.CreateConsultation(consultation);
             return RedirectToAction("Consultations");
         }

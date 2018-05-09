@@ -35,5 +35,14 @@ namespace ClinicWebAPI.Controllers
             }
             return StatusCode(404);
         }
+
+        public ActionResult PatientConsultations(int id)
+        {
+            Patient patient = new PatientBuilder()
+                .SetId(id)
+                .Build();
+            var consultations = consultationService.GetConsultationsByPatient(patient);
+            return View(consultations);
+        }
     }
 }

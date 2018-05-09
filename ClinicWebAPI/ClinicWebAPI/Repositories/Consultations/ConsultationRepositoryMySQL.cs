@@ -27,7 +27,7 @@ namespace ClinicWebAPI.Repositories.Consultations
                 connection.Open();
                 using (MySqlCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = String.Format("Insert into consultation (id, appointmentDate, user_id, patient_id) VALUES('{0}', '{1}', '{2}', '{3}'); ", t.GetId(), t.GetAppointmentDate().ToString("yyyy-MM-dd HH:mm:ss"), t.GetDoctor().Id, t.GetPatient().Id);
+                    command.CommandText = String.Format("Insert into consultation (id, appointmentDate, user_id, patient_id) VALUES('{0}', '{1}', '{2}', '{3}'); ", t.GetId(), t.GetAppointmentDate().ToString("yyyy-MM-dd HH:mm:ss"), t.GetDoctorId(), t.GetPatientId());
                     command.ExecuteNonQuery();
                 }
                 connection.Close();

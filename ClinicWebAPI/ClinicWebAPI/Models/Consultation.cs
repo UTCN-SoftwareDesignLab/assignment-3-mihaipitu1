@@ -44,19 +44,19 @@ namespace ClinicWebAPI.Models
 
         public long GetPatientId()
         {
-            return id;
+            return patientId;
         }
         public void SetPatientId(long id)
         {
-            this.id = id;
+            this.patientId = id;
         }
         public long GetDoctorId()
         {
-            return id;
+            return doctorId;
         }
         public void SetDoctorId(long id)
         {
-            this.id = id;
+            this.doctorId = id;
         }
 
         public Patient GetPatient()
