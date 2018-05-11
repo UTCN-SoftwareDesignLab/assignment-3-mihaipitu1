@@ -42,6 +42,7 @@ namespace ClinicWebAPI.Controllers
                 .SetId(id)
                 .Build();
             var consultations = consultationService.GetConsultationsByPatient(patient);
+            TempData["user"] = JsonConvert.SerializeObject(consultations.ElementAt(0).GetDoctor());
             return View(consultations);
         }
     }
