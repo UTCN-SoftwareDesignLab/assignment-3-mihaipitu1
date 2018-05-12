@@ -5,13 +5,45 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script language="javascript" type="text/javascript">
+    var uri = "ws://" + "localhost:1774/notifications";
+
+    function connect() {
+        socket = new WebSocket(uri);
+        socket.onopen = function (event) {
+            console.log("opened connection to " + uri);
+        };
+        socket.onclose = function (event) {
+            console.log("closed connection from " + uri);
+        };
+        socket.onmessage = function (event) {
+            appendItem(event.data);
+            console.log(event.data);
+        };
+        socket.onerror = function (event) {
+            console.log("error: " + event.data);
+        };
+    }
+
+    connect();
+    var list = document.getElementById("notification");
+
+    function appendItem(list, message) {
+        var item = document.createElement("li");
+        item.appendChild(document.createTextNode(message));
+        list.appendItem(item);
+    }
+</script>
+
 <h2>CreateConsultation</h2>
 
 <h4>Consultation</h4>
+<br />
+<ul id="notification"></ul>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="CreateConsultation">
+        <form asp-action="CreateConsultationAsync">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="AppointmentDate" class="control-label"></label>

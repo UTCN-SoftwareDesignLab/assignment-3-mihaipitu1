@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ClinicWebAPI.Database;
+using ClinicWebAPI.Handlers;
 using ClinicWebAPI.Models;
 using ClinicWebAPI.Repositories;
 using ClinicWebAPI.Repositories.Consultations;
@@ -11,6 +12,7 @@ using ClinicWebAPI.Repositories.Users;
 using ClinicWebAPI.Services.Consultations;
 using ClinicWebAPI.Services.Patients;
 using ClinicWebAPI.Services.Users;
+using ClinicWebAPI.WebSockets;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -33,6 +35,7 @@ namespace ClinicWebAPI
             services.AddMemoryCache();
             services.AddSession();
             services.AddMvc();
+            services.AddWebSocketManager();
             services.AddTransient<DBConnectionWrapper>(_ => new DBConnectionFactory().GetConnectionWrapper(false));
 
             services.AddScoped<IUserRepository, UserRepositoryMySQL>();
@@ -45,7 +48,7 @@ namespace ClinicWebAPI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -58,6 +61,7 @@ namespace ClinicWebAPI
             }
 
             app.UseStaticFiles();
+            app.UseWebSockets();
 
             app.UseMvc(routes =>
             {
@@ -65,6 +69,8 @@ namespace ClinicWebAPI
                     name: "default",
                     template: "{controller=Login}/{action=Login}/{id?}");
             });
+
+            app.MapWebSocketManager("/notifications", serviceProvider.GetService<NotificationsMessageHandler>());
         }
     }
 }

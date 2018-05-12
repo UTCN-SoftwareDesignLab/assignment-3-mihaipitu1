@@ -7,6 +7,38 @@
 
 <h2>Consultations</h2>
 
+<script language="javascript" type="text/javascript">
+    var uri = "ws://" + "localhost:1774/notifications";
+
+    function connect() {
+        socket = new WebSocket(uri);
+        socket.onopen = function (event) {
+            console.log("opened connection to " + uri);
+        };
+        socket.onclose = function (event) {
+            console.log("closed connection from " + uri);
+        };
+        socket.onmessage = function (event) {
+            appendItem(event.data);
+            console.log(event.data);
+        };
+        socket.onerror = function (event) {
+            console.log("error: " + event.data);
+        };
+    }
+
+    connect();
+    var list = document.getElementById("notification");
+
+    function appendItem(list, message) {
+        var item = document.createElement("li");
+        item.appendChild(document.createTextNode(message));
+        list.appendItem(item);
+    }
+</script>
+
+<ul id="notification"></ul>
+<br />
 <p>
     <a asp-action="Create">Create New</a>
 </p>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ClinicWebAPI.Handlers;
 using ClinicWebAPI.Models;
 using ClinicWebAPI.Services.Consultations;
 using ClinicWebAPI.Services.Patients;
@@ -15,11 +16,13 @@ namespace ClinicWebAPI.Controllers
     {
         private IPatientService patientService;
         private IConsultationService consultationService;
+        private NotificationsMessageHandler notificationsMessageHandler;
 
-        public ClinicController(IPatientService patientService,IConsultationService consultationService)
+        public ClinicController(IPatientService patientService,IConsultationService consultationService,NotificationsMessageHandler notificationsMessageHandler)
         {
             this.patientService = patientService;
             this.consultationService = consultationService;
+            this.notificationsMessageHandler = notificationsMessageHandler;
         }
         // GET: Patient
         public ActionResult Patients()
@@ -56,11 +59,11 @@ namespace ClinicWebAPI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateConsultation(Consultation consultation)
+        public async Task<ActionResult> CreateConsultationAsync(Consultation consultation)
         {
-            //consultation.SetDoctorId(consultation.GetDoctor().GetId());
-            //consultation.SetPatientId(consultation.GetPatient().GetId());
             consultationService.CreateConsultation(consultation);
+            var message = String.Format("You have a new consultation with {0} at {1}.",consultation.GetPatient().GetName(), consultation.GetAppointmentDate().ToString());
+            await SendMessage(message);
             return RedirectToAction("Consultations");
         }
 
@@ -124,6 +127,11 @@ namespace ClinicWebAPI.Controllers
         {
             consultationService.DeleteConsultation(consultation);
             return RedirectToAction("Consultations");
+        }
+
+        public async Task SendMessage(string message)
+        {
+            await notificationsMessageHandler.SendMessageToAllAsync(message);
         }
     }
 }
