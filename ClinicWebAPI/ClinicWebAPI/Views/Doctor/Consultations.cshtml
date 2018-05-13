@@ -28,17 +28,20 @@
     }
 
     connect();
-    var list = document.getElementById("notification");
+    var list = document.createElement("ul");
 
-    function appendItem(list, message) {
+
+    function appendItem(message) {
         var item = document.createElement("li");
+        var list = document.createElement("ul");
         item.appendChild(document.createTextNode(message));
-        list.appendItem(item);
+        list.appendChild(item);
+        document.getElementById("notif").appendChild(list);
     }
 </script>
 
-<ul id="notification"></ul>
 <br />
+<div id="notif"></div>
 <p>
     <a asp-action="Create">Create New</a>
 </p>

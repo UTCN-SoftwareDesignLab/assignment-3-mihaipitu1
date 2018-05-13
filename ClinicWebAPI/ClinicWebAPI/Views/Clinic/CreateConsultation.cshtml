@@ -26,20 +26,18 @@
     }
 
     connect();
-    var list = document.getElementById("notification");
+    
 
-    function appendItem(list, message) {
+    function appendItem(message) {
         var item = document.createElement("li");
+        var list = document.createElement("ul");
         item.appendChild(document.createTextNode(message));
-        list.appendItem(item);
+        list.appendChild(item);
     }
 </script>
 
-<h2>CreateConsultation</h2>
+<h2>Create new Consultation</h2>
 
-<h4>Consultation</h4>
-<br />
-<ul id="notification"></ul>
 <hr />
 <div class="row">
     <div class="col-md-4">
