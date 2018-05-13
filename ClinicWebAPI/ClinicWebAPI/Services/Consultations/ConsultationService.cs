@@ -1,4 +1,5 @@
 ﻿using ClinicWebAPI.Models;
+using ClinicWebAPI.Models.Validators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace ClinicWebAPI.Services.Consultations
 {
     public interface IConsultationService
     {
-        bool CreateConsultation(Consultation consultation);
+        Notification<bool> CreateConsultation(Consultation consultation);
 
         bool UpdateConsultation(Consultation consultation);
 

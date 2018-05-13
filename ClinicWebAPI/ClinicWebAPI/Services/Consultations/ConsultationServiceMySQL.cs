@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ClinicWebAPI.Models;
+using ClinicWebAPI.Models.Validators;
 using ClinicWebAPI.Repositories;
 using ClinicWebAPI.Repositories.Consultations;
 using ClinicWebAPI.Repositories.Users;
@@ -22,12 +23,29 @@ namespace ClinicWebAPI.Services.Consultations
             this.userRepo = userRepo;
         }
 
-        public bool CreateConsultation(Consultation consultation)
+        public Notification<bool> CreateConsultation(Consultation consultation)
         {
             consultation.SetId(GetMaxId() + 1);
             consultation.SetDoctorId(consultation.GetDoctor().Id);
             consultation.SetPatientId(consultation.GetPatient().Id);
-            return consultationRepo.Create(consultation);
+            consultation.SetDoctor(userRepo.FindById(consultation.GetDoctorId()));
+            consultation.SetPatient(patientRepo.FindById(consultation.GetPatientId()));
+            ConsultationValidator validator = new ConsultationValidator(consultation);
+            Notification<bool> notifier = new Notification<bool>();
+            bool validity = validator.Validate();
+            if (!validity)
+            {
+                foreach (var error in validator.GetErrors())
+                {
+                    notifier.AddError(error);
+                }
+                notifier.SetResult(false);
+            }
+            else
+            {
+                consultationRepo.Create(consultation);
+            }
+            return notifier;
         }
 
         public bool DeleteConsultation(Consultation consultation)

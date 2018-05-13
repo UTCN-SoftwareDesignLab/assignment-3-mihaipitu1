@@ -1,14 +1,12 @@
 ﻿@model ClinicWebAPI.Models.Consultation
 
 @{
-    ViewData["Title"] = "EditConsultation";
+    ViewData["Title"] = "Edit Consultation";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>EditConsultation</h2>
+<h2>Edit Consultation</h2>
 
-<h4>Consultation</h4>
-<hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="EditConsultation">
@@ -26,6 +24,6 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Consultations">Back to all consultations</a>
 </div>
 

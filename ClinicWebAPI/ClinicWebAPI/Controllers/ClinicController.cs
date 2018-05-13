@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ClinicWebAPI.Handlers;
 using ClinicWebAPI.Models;
+using ClinicWebAPI.Models.Validators;
 using ClinicWebAPI.Services.Consultations;
 using ClinicWebAPI.Services.Patients;
 using Microsoft.AspNetCore.Http;
@@ -61,8 +62,14 @@ namespace ClinicWebAPI.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> CreateConsultationAsync(Consultation consultation)
         {
-            consultationService.CreateConsultation(consultation);
-            var message = String.Format("You have a new consultation with {0} at {1}.",consultation.GetPatient().GetName(), consultation.GetAppointmentDate().ToString());
+            Notification<bool> notifier = consultationService.CreateConsultation(consultation);
+            if(notifier.HasErrors())
+            {
+                 ViewData["Errors"] = notifier.GetErrors();
+                 return View("Error");
+            }
+            var patient = consultationService.GetConsultationById(consultation.Id);
+            var message = String.Format("You have a new consultation with {0} at {1}.",patient.GetPatient().Name, consultation.GetAppointmentDate().ToString());
             await SendMessage(message);
             return RedirectToAction("Consultations");
         }

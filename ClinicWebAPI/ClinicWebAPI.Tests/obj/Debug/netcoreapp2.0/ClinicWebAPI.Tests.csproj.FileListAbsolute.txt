@@ -1,0 +1,17 @@
+C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI.Tests\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI.Tests\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI.Tests\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI.Tests\bin\Debug\netcoreapp2.0\ClinicWebAPI.Tests.deps.json
+C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI.Tests\bin\Debug\netcoreapp2.0\ClinicWebAPI.Tests.runtimeconfig.json
+C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI.Tests\bin\Debug\netcoreapp2.0\ClinicWebAPI.Tests.runtimeconfig.dev.json
+C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI.Tests\bin\Debug\netcoreapp2.0\ClinicWebAPI.Tests.dll
+C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI.Tests\bin\Debug\netcoreapp2.0\ClinicWebAPI.Tests.pdb
+C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI.Tests\bin\Debug\netcoreapp2.0\ClinicWebAPI.dll
+C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI.Tests\bin\Debug\netcoreapp2.0\ClinicWebAPI.pdb
+C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI.Tests\obj\Debug\netcoreapp2.0\ClinicWebAPI.Tests.csprojAssemblyReference.cache
+C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI.Tests\obj\Debug\netcoreapp2.0\ClinicWebAPI.Tests.csproj.CoreCompileInputs.cache
+C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI.Tests\obj\Debug\netcoreapp2.0\ClinicWebAPI.Tests.AssemblyInfoInputs.cache
+C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI.Tests\obj\Debug\netcoreapp2.0\ClinicWebAPI.Tests.AssemblyInfo.cs
+C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI.Tests\obj\Debug\netcoreapp2.0\ClinicWebAPI.Tests.csproj.CopyComplete
+C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI.Tests\obj\Debug\netcoreapp2.0\ClinicWebAPI.Tests.dll
+C:\Users\mihai.pitu\Desktop\Facultate\SD\Assignment 3\ClinicWebAPI\ClinicWebAPI.Tests\obj\Debug\netcoreapp2.0\ClinicWebAPI.Tests.pdb

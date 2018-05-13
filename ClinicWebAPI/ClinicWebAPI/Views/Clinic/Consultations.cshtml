@@ -7,15 +7,12 @@
 <h2>Consultations</h2>
 
 <p>
-    <a asp-action="CreateConsultation">Create New</a> | 
+    <a asp-action="CreateConsultation">Create New Consultation</a> | 
     <a asp-action="Patients">Go to Patients</a>
 </p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.AppointmentDate)
             </th>
@@ -31,9 +28,6 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <th>
-                @Html.DisplayFor(modelItem => item.Id)
-            </th>
             <td>
                 @Html.DisplayFor(modelItem => item.AppointmentDate)
             </td>

@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<ClinicWebAPI.Models.Consultation>
 
 @{
-    ViewData["Title"] = "PatientConsultations";
+    ViewData["Title"] = "Patient's history";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>PatientConsultations</h2>
+<h2>Patient Consultation History</h2>
 
 <p>
     <a asp-action="Consultations">Back to my consultations</a>
@@ -13,12 +13,12 @@
 <table class="table">
     <thead>
         <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Id)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.AppointmentDate)
-                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AppointmentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Doctor)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -26,10 +26,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Id)
+                @Html.DisplayFor(modelItem => item.AppointmentDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AppointmentDate)
+                @Html.DisplayFor(modelItem => item.Doctor.Name)
             </td>
         </tr>
 }
